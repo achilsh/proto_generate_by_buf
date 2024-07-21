@@ -1,0 +1,13 @@
+version: v1
+plugins:
+  # protoc-gen-go needs to be installed, generate go files based on proto files
+  - plugin: go
+    out:  gen ###
+    opt:
+      - paths=source_relative
+
+  # protoc-gen-go-grpc needs to be installed, generate grpc go files based on proto files
+  - plugin: go-grpc
+    out:  gen  ##
+    opt:
+      - paths=source_relative

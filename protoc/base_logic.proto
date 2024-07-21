@@ -1,0 +1,8 @@
+syntax = "proto3";
+package protoc.demo;
+option go_package="protoc/demo";
+
+message baseItem {
+  string firstValue =1;
+  int32 firstNums = 2;
+}

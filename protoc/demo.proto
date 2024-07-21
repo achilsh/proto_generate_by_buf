@@ -1,0 +1,27 @@
+syntax = "proto3";
+//    一般情况下 Package 可以按照「项目名.服务类型.服务名」的方式进行命名
+package protoc.demo;
+//    如果需要生成 Golang 代码需要指定 go_package, 通常是「项目名/服务类型/服务名」即可
+option go_package="protoc/demo;demo";
+
+import "protoc/base_logic.proto";
+
+message DemoRequestBody {
+  string value =1;
+  int32 num = 2;
+  baseItem item = 3;
+}
+
+message DemoResponseBody {
+  // buf:lint:ignore FIELD_LOWER_SNAKE_CASE
+  int32 errCode = 1;
+  // buf:lint:ignore FIELD_LOWER_SNAKE_CASE
+  string errMessage = 2;
+}
+
+// buf:lint:ignore SERVICE_PASCAL_CASE
+service demoService {
+  rpc Echo(DemoRequestBody) returns(DemoResponseBody) {}
+}
+
+
